@@ -9,7 +9,9 @@ function _anyframe-action-insert()
     LBUFFER+="$*"
     CURSOR=$#LBUFFER
     # redisplay the command line
-    zle -R -c
+    #zle -R -c
+    zle redisplay
+    typeset -f zle-line-init >/dev/null && zle zle-line-init
   else
     print -z -f '%s' "$*"
   fi

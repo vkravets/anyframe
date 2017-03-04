@@ -10,7 +10,9 @@ function _anyframe-action-execute()
     BUFFER="$*"
     zle accept-line
     # redisplay the command line
-    zle -R -c
+    #zle -R -c
+    zle redisplay
+    typeset -f zle-line-init >/dev/null && zle zle-line-init
   else
     eval "$*"
   fi
